@@ -49,7 +49,7 @@ Please read and follow our [Code of Conduct](CODE_OF_CONDUCT.md).
 
 ### Prerequisites
 
-- Python 3.11+
+- Python <PYTHON_VERSION>+
 - [uv](https://docs.astral.sh/uv/) package manager
 
 ### Setup
