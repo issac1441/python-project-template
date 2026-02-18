@@ -84,8 +84,6 @@ _exclude:
   - "copier.yml"
   - ".git"
   - "/README.md"
-  - "{% if not enable_pypi_publish %}.github/workflows/publish.yml.jinja{% endif %}"
-  - "{% if not enable_docs_deploy %}.github/workflows/docs.yml.jinja{% endif %}"
 
 # Tasks to run after generation
 _tasks:

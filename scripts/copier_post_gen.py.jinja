@@ -17,6 +17,8 @@ copyright_year = "{{ copyright_year }}"
 version = "{{ version }}"
 license_name = "{{ license }}"
 python_version = "{{ python_version }}"
+enable_pypi_publish = {% if enable_pypi_publish %}True{% else %}False{% endif %}
+enable_docs_deploy = {% if enable_docs_deploy %}True{% else %}False{% endif %}
 
 # Derived values
 package_name = project_name.replace("-", "_")
@@ -108,6 +110,12 @@ if selected_license_file and os.path.exists(selected_license_file):
     for placeholder, value in replacements.items():
         license_content = license_content.replace(placeholder, value)
     Path("LICENSE").write_text(license_content, encoding="utf-8")
+
+# Remove optional workflow files if not enabled
+if not enable_pypi_publish:
+    Path(".github/workflows/publish.yml").unlink(missing_ok=True)
+if not enable_docs_deploy:
+    Path(".github/workflows/docs.yml").unlink(missing_ok=True)
 
 # Cleanup
 if os.path.exists(".license"):
