@@ -56,6 +56,16 @@ python_version:
     - "3.14"
   default: "3.11"
 
+enable_pypi_publish:
+  type: bool
+  help: Enable PyPI publish workflow?
+  default: false
+
+enable_docs_deploy:
+  type: bool
+  help: Enable GitHub Pages docs deployment?
+  default: false
+
 license:
   type: str
   help: Choose a license
@@ -74,6 +84,8 @@ _exclude:
   - "copier.yml"
   - ".git"
   - "/README.md"
+  - "{% if not enable_pypi_publish %}.github/workflows/publish.yml.jinja{% endif %}"
+  - "{% if not enable_docs_deploy %}.github/workflows/docs.yml.jinja{% endif %}"
 
 # Tasks to run after generation
 _tasks:
