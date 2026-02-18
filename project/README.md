@@ -2,7 +2,7 @@
 
 [![CI](<REPOSITORY_URL>/actions/workflows/ci.yml/badge.svg)](<REPOSITORY_URL>/actions/workflows/ci.yml)
 [![License](https://img.shields.io/badge/license-<LICENSE_BADGE>-blue)](LICENSE)
-[![Python](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
+[![Python](https://img.shields.io/badge/python-<PYTHON_VERSION>+-blue)](https://www.python.org/downloads/)
 [![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
 
 <PROJECT_DESCRIPTION>
@@ -35,7 +35,7 @@ python -m <PACKAGE_NAME>.main
 
 ### Prerequisites
 
-- **Python 3.11+**
+- **Python <PYTHON_VERSION>+**
 - **[uv](https://docs.astral.sh/uv/)** - Fast Python package manager
 
 ### Setup

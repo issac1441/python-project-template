@@ -46,6 +46,16 @@ version:
   help: Initial version
   default: "0.1.0"
 
+python_version:
+  type: str
+  help: Minimum Python version
+  choices:
+    - "3.11"
+    - "3.12"
+    - "3.13"
+    - "3.14"
+  default: "3.11"
+
 license:
   type: str
   help: Choose a license
