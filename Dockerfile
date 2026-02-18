@@ -1,5 +1,5 @@
 # Use a multi-stage build to keep the final image small
-FROM python:3.11-slim-buster AS builder
+FROM python:<PYTHON_VERSION>-slim-bookworm AS builder
 
 # Install uv
 COPY --from=ghcr.io/astral-sh/uv:latest /uv /bin/uv
@@ -19,7 +19,7 @@ COPY . .
 RUN uv sync --frozen
 
 # Final stage
-FROM python:3.11-slim-buster
+FROM python:<PYTHON_VERSION>-slim-bookworm
 
 WORKDIR /app
 

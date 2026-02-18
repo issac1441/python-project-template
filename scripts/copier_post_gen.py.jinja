@@ -16,11 +16,22 @@ copyright_holder = "{{ copyright_holder }}"
 copyright_year = "{{ copyright_year }}"
 version = "{{ version }}"
 license_name = "{{ license }}"
+python_version = "{{ python_version }}"
 
 # Derived values
 package_name = project_name.replace("-", "_")
 # URL-safe license name for shields.io badge (- becomes --, _ becomes __)
 license_badge = license_name.replace("-", "--").replace("_", "__")
+
+# Python version derived values
+python_version_short = python_version.replace(".", "")  # e.g., "311"
+all_python_versions = ["3.11", "3.12", "3.13", "3.14"]
+min_version_index = all_python_versions.index(python_version)
+ci_python_versions = str(all_python_versions[min_version_index:])  # e.g., '["3.11", "3.12", ...]'
+# Generate classifiers for pyproject.toml
+python_classifiers = "\n".join(
+    f'    "Programming Language :: Python :: {v}",' for v in all_python_versions[min_version_index:]
+)
 
 # Ensure repository_url is a valid HTTPS URL
 if repository_url.startswith("http://"):
@@ -48,6 +59,10 @@ replacements = {
     "<LICENSE_BADGE>": license_badge,
     "<CONTACT_EMAIL>": contact_email,
     "<RELEASE_DATE>": date.today().isoformat(),
+    "<PYTHON_VERSION>": python_version,
+    "<PYTHON_VERSION_SHORT>": python_version_short,
+    "<CI_PYTHON_VERSIONS>": ci_python_versions,
+    "<PYTHON_CLASSIFIERS>": python_classifiers,
 }
 
 # Files to skip
