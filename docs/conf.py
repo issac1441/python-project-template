@@ -6,6 +6,8 @@
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
+"""This is the configuration file for Sphinx documentation."""
+
 import os
 import sys
 
@@ -21,7 +23,6 @@ release = "<VERSION>"
 
 extensions = [
     "sphinx.ext.autodoc",
-    "sphinx.ext.napoleon",
     "sphinx.ext.viewcode",
     "sphinx_autodoc_typehints",
     "myst_parser",

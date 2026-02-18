@@ -63,10 +63,19 @@ Copier will ask you a series of questions:
    John Doe
 
 🎤 Copyright year
-   2025
+   2026
 
 🎤 Initial version
    0.1.0
+
+🎤 Minimum Python version
+   3.11
+
+🎤 Enable PyPI publish workflow?
+   No
+
+🎤 Enable GitHub Pages docs deployment?
+   No
 
 🎤 Choose a license
    MIT
@@ -137,6 +146,10 @@ Search and replace these placeholders throughout the project:
 | `<LICENSE_SPDX_ID>` | SPDX identifier | `MIT` |
 | `<RELEASE_DATE>` | Release date | `2025-02-17` |
 | `<CONTACT_EMAIL>` | Contact email | `john@example.com` |
+| `<PYTHON_VERSION>` | Minimum Python version | `3.11` |
+| `<PYTHON_VERSION_SHORT>` | Python version (no dot) | `311` |
+| `<CI_PYTHON_VERSIONS>` | CI matrix versions | `["3.11", "3.12", "3.13", "3.14"]` |
+| `<LICENSE_BADGE>` | URL-safe license name | `MIT` |
 
 **Quick replacement using sed (macOS/Linux):**
 
