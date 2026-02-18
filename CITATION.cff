@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+title: "<PROJECT_NAME>"
+authors:
+  - family-names: "<AUTHOR_FAMILY_NAME>"
+    given-names: "<AUTHOR_GIVEN_NAME>"
+    # orcid: "https://orcid.org/0000-0000-0000-0000"  # Optional: Add your ORCID
+date-released: "<RELEASE_DATE>"  # Format: YYYY-MM-DD
+license: "<LICENSE_SPDX_ID>"  # e.g., MIT, Apache-2.0, GPL-3.0
+repository-code: "<REPOSITORY_URL>"
+type: software
+version: "<VERSION>"
+message: "If you use this software, please cite it as below."
+# Optional fields:
+# doi: "10.5281/zenodo.xxxxxxx"
+# url: "https://example.com"
+# abstract: "A brief description of the software."
+# keywords:
+#   - python
+#   - template

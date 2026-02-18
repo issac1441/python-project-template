@@ -1,0 +1,41 @@
+Academic Research License (ARL) v1.1
+Copyright (c) <YEAR> <COPYRIGHT_HOLDER>
+
+Definitions.
+"Software" means the code, models, weights, and accompanying files in this repository ("<PROJECT_NAME>").
+"Academic Use" means use by individuals or organizations exclusively for non-commercial research or teaching,
+including reproducing results, benchmarking, and creating derivative works for publication.
+
+Grant.
+Subject to the terms below, the Licensor grants you a worldwide, royalty-free, non-exclusive, non-transferable
+license to use, reproduce, modify, and distribute the Software, solely for Academic Use.
+
+Conditions.
+(1) You must include this license and the NOTICE file with all copies or substantial portions of the Software.
+(2) You must clearly mark any changes you make and the date of change.
+(3) Publications or preprints using the Software must cite the work listed in CITATION.cff or the NOTICE.
+
+Restrictions (No Commercial Use).
+You may NOT use the Software, in whole or in part, for Commercial Use, including but not limited to:
+providing services (including SaaS/hosted inference), internal use by for-profit entities,
+paid consulting, training or fine-tuning models for commercial deployment, or redistributing
+the Software under a commercial license. Sublicensing is prohibited.
+
+Patents.
+For Academic Use only, Licensor grants a non-exclusive, worldwide, royalty-free patent license to make, have made,
+use, and import the Software. No patent license is granted for Commercial Use.
+
+No Warranty; Limitation of Liability.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS
+BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+Termination.
+This license automatically terminates if you breach its terms. Rights may be reinstated upon curing the breach
+within 30 days. Upon termination, you must cease all use and destroy copies of the Software.
+
+Governing Law.
+This section is intentionally left blank unless specified by the Licensor or institution.
+
+Commercial Licensing.
+For commercial inquiries, contact: <CONTACT_EMAIL>.

@@ -1,0 +1,99 @@
+from __future__ import annotations
+
+import os
+import shutil
+from datetime import date
+from pathlib import Path
+
+# These values are rendered by Copier
+project_name = "{{ project_name }}"
+project_description = "{{ project_description }}"
+author_given_name = "{{ author_given_name }}"
+author_family_name = "{{ author_family_name }}"
+contact_email = "{{ contact_email }}"
+repository_url = "{{ repository_url }}"
+copyright_holder = "{{ copyright_holder }}"
+copyright_year = "{{ copyright_year }}"
+version = "{{ version }}"
+license_name = "{{ license }}"
+
+# Derived values
+package_name = project_name.replace("-", "_")
+# URL-safe license name for shields.io badge (- becomes --, _ becomes __)
+license_badge = license_name.replace("-", "--").replace("_", "__")
+
+# Ensure repository_url is a valid HTTPS URL
+if repository_url.startswith("http://"):
+    repository_url = repository_url.replace("http://", "https://", 1)
+elif not repository_url.startswith("https://"):
+    repository_url = f"https://{repository_url}"
+
+# Remove .git suffix if present
+if repository_url.endswith(".git"):
+    repository_url = repository_url[:-4]
+
+# Map placeholders to values
+replacements = {
+    "<PROJECT_NAME>": project_name,
+    "<PACKAGE_NAME>": package_name,
+    "<PROJECT_DESCRIPTION>": project_description,
+    "<AUTHOR_GIVEN_NAME>": author_given_name,
+    "<AUTHOR_FAMILY_NAME>": author_family_name,
+    "<COPYRIGHT_HOLDER>": copyright_holder,
+    "<YEAR>": copyright_year,
+    "<REPOSITORY_URL>": repository_url,
+    "<VERSION>": version,
+    "<LICENSE_NAME>": license_name,
+    "<LICENSE_SPDX_ID>": license_name,
+    "<LICENSE_BADGE>": license_badge,
+    "<CONTACT_EMAIL>": contact_email,
+    "<RELEASE_DATE>": date.today().isoformat(),
+}
+
+# Files to skip
+skip_files = ["copier.yml", "scripts/copier_post_gen.py", "uv.lock"]
+
+# Walk through all files
+for path in Path(".").rglob("*"):
+    # Skip .git directory and excluded files
+    if ".git" in path.parts:
+        continue
+
+    if path.is_file() and path.name not in skip_files:
+        try:
+            # Check if file is text
+            content = path.read_text(encoding="utf-8")
+            original_content = content
+
+            for placeholder, value in replacements.items():
+                content = content.replace(placeholder, value)
+
+            if content != original_content:
+                path.write_text(content, encoding="utf-8")
+        except UnicodeDecodeError:
+            pass  # Skip binary files
+        except Exception as e:
+            print(f"Skipping {path}: {e}")
+
+# Handle license file copy
+license_map = {
+    "MIT": ".license/MIT.txt",
+    "Apache-2.0": ".license/Apache-2.0.txt",
+    "GPL-3.0": ".license/GPL-3.0.txt",
+    "BSD-3-Clause": ".license/BSD-3-Clause.txt",
+    "MPL-2.0": ".license/MPL-2.0.txt",
+    "Unlicense": ".license/Unlicense.txt",
+    "ARL-1.1": ".license/ARL-1.1.txt",
+}
+
+selected_license_file = license_map.get(license_name)
+if selected_license_file and os.path.exists(selected_license_file):
+    license_content = Path(selected_license_file).read_text(encoding="utf-8")
+    # Replace placeholders in license too
+    for placeholder, value in replacements.items():
+        license_content = license_content.replace(placeholder, value)
+    Path("LICENSE").write_text(license_content, encoding="utf-8")
+
+# Cleanup
+if os.path.exists(".license"):
+    shutil.rmtree(".license")
