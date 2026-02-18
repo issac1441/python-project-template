@@ -12,14 +12,13 @@ classifiers = [
     "Programming Language :: Python :: 3",
 <PYTHON_CLASSIFIERS>
 ]
+dependencies = [
+    "pydantic>=2.10.0",
+]
 
 [project.urls]
 Repository = "<REPOSITORY_URL>"
 Issues = "<REPOSITORY_URL>/issues"
-
-dependencies = [
-    "pydantic>=2.10.0",
-]
 
 [dependency-groups]
 dev = [
