@@ -77,7 +77,7 @@ _exclude:
 
 # Tasks to run after generation
 _tasks:
-  - "uv run --no-project python scripts/copier_post_gen.py || python3 scripts/copier_post_gen.py || python scripts/copier_post_gen.py"
+  - "python3 scripts/copier_post_gen.py || python scripts/copier_post_gen.py || uv run --no-project python scripts/copier_post_gen.py"
   - ["rm", "-rf", "scripts"]
   - ["mv", "project", "{{ project_name | replace('-', '_') }}"]
   - ["mv", "{{ project_name | replace('-', '_') }}/README.md", "README.md"]
