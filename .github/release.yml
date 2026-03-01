@@ -2,26 +2,45 @@ changelog:
   exclude:
     labels:
       - "skip-changelog"
+    authors:
+      - "dependabot"
+      - "dependabot[bot]"
+      - "github-actions"
+      - "github-actions[bot]"
   categories:
+    - title: ⚠️ Breaking Changes
+      labels:
+        - "breaking-change"
     - title: 🚀 Features
       labels:
-        - "enhancement"
         - "feature"
+        - "enhancement"
     - title: 🐛 Bug Fixes
       labels:
         - "bug"
         - "fix"
+    - title: ⚡ Performance
+      labels:
+        - "perf"
+        - "performance"
+    - title: 🧹 Refactor / Maintenance
+      labels:
+        - "refactor"
+        - "chore"
+        - "ci"
+        - "build"
+        - "dependencies"
     - title: 📚 Documentation
       labels:
         - "documentation"
-    - title: 🧹 Maintenance
+        - "docs"
+    - title: ✅ Tests
       labels:
-        - "chore"
-        - "dependencies"
-        - "refactor"
-    - title: ⚠️ Breaking Changes
+        - "test"
+        - "tests"
+    - title: 🔒 Security
       labels:
-        - "breaking-change"
-    - title: Other Changes
+        - "security"
+    - title: 📦 Other Changes
       labels:
         - "*"
