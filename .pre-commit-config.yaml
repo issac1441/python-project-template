@@ -10,9 +10,7 @@ repos:
   hooks:
     - id: ruff-check
       args: ["--fix"]
-      pass_filenames: false
     - id: ruff-format
-      pass_filenames: false
 
 # Optional, if you want to challenge your code with mypy
 # - repo: https://github.com/pre-commit/mirrors-mypy
